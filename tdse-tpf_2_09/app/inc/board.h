@@ -59,13 +59,55 @@ extern "C" {
 /* STM32 Nucleo Boards - 64 Pins */
 #if ((BOARD == NUCLEO_F103RC) || (BOARD == NUCLEO_F401RE) || (BOARD == NUCLEO_F446RE))
 
-#define BTN_A_PIN		B1_Pin
-#define BTN_A_PORT		B1_GPIO_Port
-#define BTN_A_PRESSED	GPIO_PIN_RESET
-#define BTN_A_HOVER		GPIO_PIN_SET
+//BOTON Y LED A
+#define BTN_ARR_PIN		B_ARR_Pin
+#define BTN_ARR_PORT		B_ARR_GPIO_Port
+#define BTN_ARR_PRESSED	GPIO_PIN_RESET
+#define BTN_ARR_HOVER		GPIO_PIN_SET
 
-#define BTN_ENT_PIN		D10_Pin
-#define BTN_ENT_PORT	D10_GPIO_Port
+#define LED_A_PIN		LD2_Pin
+#define LED_A_PORT		LD2_GPIO_Port
+#define LED_A_ON		GPIO_PIN_SET
+#define LED_A_OFF		GPIO_PIN_RESET
+
+//BOTON Y LED B
+#define BTN_ABJ_PIN		B_ABJ_Pin
+#define BTN_ABJ_PORT		B_ABJ_GPIO_Port
+#define BTN_ABJ_PRESSED	GPIO_PIN_RESET
+#define BTN_ABJ_HOVER		GPIO_PIN_SET
+
+#define LED_B_PIN		LD2_Pin
+#define LED_B_PORT		LD2_GPIO_Port
+#define LED_B_ON		GPIO_PIN_SET
+#define LED_B_OFF		GPIO_PIN_RESET
+
+//BOTON Y LED C
+#define BTN_IZQ_PIN		B_IZQ_Pin
+#define BTN_IZQ_PORT		B_IZQ_GPIO_Port
+#define BTN_IZQ_PRESSED	GPIO_PIN_RESET
+#define BTN_IZQ_HOVER		GPIO_PIN_SET
+
+#define LED_C_PIN		LD2_Pin
+#define LED_C_PORT		LD2_GPIO_Port
+#define LED_C_ON		GPIO_PIN_SET
+#define LED_C_OFF		GPIO_PIN_RESET
+
+//BOTON Y LED D
+#define BTN_DER_PIN		B_DER_Pin
+#define BTN_DER_PORT		B_DER_GPIO_Port
+#define BTN_DER_PRESSED	GPIO_PIN_RESET
+#define BTN_DER_HOVER		GPIO_PIN_SET
+
+#define LED_D_PIN		LD2_Pin
+#define LED_D_PORT		LD2_GPIO_Port
+#define LED_D_ON		GPIO_PIN_SET
+#define LED_D_OFF		GPIO_PIN_RESET
+
+
+/* STM32 Nucleo Boards - 144 Pins */
+
+#define BTN_ENT_PIN		B_ENT_Pin
+#define BTN_ENT_PORT	B_ENT_GPIO_Port
 #define BTN_ENT_PRESSED	GPIO_PIN_RESET
 #define BTN_ENT_HOVER	GPIO_PIN_SET
 

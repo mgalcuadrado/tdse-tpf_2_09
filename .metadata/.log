@@ -19,3 +19,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-07-17 16:41:11.885
 !MESSAGE Indexed 'tdse-tpf_2_09' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-07-17 18:21:01.015
+!MESSAGE Indexed 'tdse-tp2_02-model_integration-' (24 sources, 96 headers) in 4.58 sec: 7,329 declarations; 29,771 references; 10 unresolved inclusions; 740 syntax errors; 990 unresolved names (2.6%)

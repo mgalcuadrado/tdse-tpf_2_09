@@ -64,7 +64,7 @@ struct
 	uint32_t	tail;
 	uint32_t	count;
 	task_menu_ev_t	queue[MAX_EVENTS];
-} queue_task_a;
+} queue_a_task_a;
 
 /********************** external data declaration ****************************/
 
@@ -73,40 +73,40 @@ void init_queue_event_task_menu(void)
 {
 	uint32_t i;
 
-	queue_task_a.head = 0;
-	queue_task_a.tail = 0;
-	queue_task_a.count = 0;
+	queue_a_task_a.head = 0;
+	queue_a_task_a.tail = 0;
+	queue_a_task_a.count = 0;
 
 	for (i = 0; i < MAX_EVENTS; i++)
-		queue_task_a.queue[i] = EVENT_UNDEFINED;
+		queue_a_task_a.queue[i] = EVENT_UNDEFINED;
 }
 
 void put_event_task_menu(task_menu_ev_t event)
 {
-	queue_task_a.count++;
-	queue_task_a.queue[queue_task_a.head++] = event;
+	queue_a_task_a.count++;
+	queue_a_task_a.queue[queue_a_task_a.head++] = event;
 
-	if (MAX_EVENTS == queue_task_a.head)
-		queue_task_a.head = 0;
+	if (MAX_EVENTS == queue_a_task_a.head)
+		queue_a_task_a.head = 0;
 }
 
 task_menu_ev_t get_event_task_menu(void)
 {
 	task_menu_ev_t event;
 
-	queue_task_a.count--;
-	event = queue_task_a.queue[queue_task_a.tail];
-	queue_task_a.queue[queue_task_a.tail++] = EVENT_UNDEFINED;
+	queue_a_task_a.count--;
+	event = queue_a_task_a.queue[queue_a_task_a.tail];
+	queue_a_task_a.queue[queue_a_task_a.tail++] = EVENT_UNDEFINED;
 
-	if (MAX_EVENTS == queue_task_a.tail)
-		queue_task_a.tail = 0;
+	if (MAX_EVENTS == queue_a_task_a.tail)
+		queue_a_task_a.tail = 0;
 
 	return event;
 }
 
 bool any_event_task_menu(void)
 {
-  return (queue_task_a.head != queue_task_a.tail);
+  return (queue_a_task_a.head != queue_a_task_a.tail);
 }
 
 /********************** end of file ******************************************/

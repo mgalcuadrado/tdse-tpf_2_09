@@ -50,6 +50,8 @@
 #include "task_sensor_attribute.h"
 #include "task_menu_attribute.h"
 #include "task_menu_interface.h"
+#include "task_system_attribute.h"
+#include "task_system_interface.h"
 
 /********************** macros and definitions *******************************/
 #define G_TASK_SEN_CNT_INIT			0ul
@@ -63,10 +65,16 @@
 const task_sensor_cfg_t task_sensor_cfg_list[] = {
 	{ID_BTN_ENT,  BTN_ENT_PORT,  BTN_ENT_PIN,  BTN_ENT_PRESSED, DEL_BTN_XX_MAX,
 	 EV_MEN_ENT_IDLE,  EV_MEN_ENT_ACTIVE},
-	{ID_BTN_NEX,  BTN_NEX_PORT,  BTN_NEX_PIN,  BTN_NEX_PRESSED, DEL_BTN_XX_MAX,
-	 EV_MEN_NEX_IDLE,  EV_MEN_NEX_ACTIVE},
-	{ID_BTN_ESC,  BTN_ESC_PORT,  BTN_ESC_PIN,  BTN_ESC_PRESSED, DEL_BTN_XX_MAX,
-	 EV_MEN_ESC_IDLE,  EV_MEN_ESC_ACTIVE}
+	 {ID_BTN_ARR,  BTN_ARR_PORT,  BTN_ARR_PIN,  BTN_ARR_PRESSED, DEL_BTN_XX_MAX,
+	 	 EV_SYS_XX_IDLE,  EV_SYS_XX_ACTIVE},
+	 	 {ID_BTN_ABJ,  BTN_ABJ_PORT,  BTN_ABJ_PIN,  BTN_ABJ_PRESSED, DEL_BTN_XX_MAX,
+	 	 	 EV_SYS_XX_IDLE,  EV_SYS_XX_ACTIVE},
+	 		 {ID_BTN_IZQ,  BTN_IZQ_PORT,  BTN_IZQ_PIN,  BTN_IZQ_PRESSED, DEL_BTN_XX_MAX,
+	 		 	 EV_SYS_XX_IDLE,  EV_SYS_XX_ACTIVE},
+	 			 {ID_BTN_DER,  BTN_DER_PORT,  BTN_DER_PIN,  BTN_DER_PRESSED, DEL_BTN_XX_MAX,
+	 			 	 EV_SYS_XX_IDLE,  EV_SYS_XX_ACTIVE},
+	//{ID_BTN_ESC,  BTN_ESC_PORT,  BTN_ESC_PIN,  BTN_ESC_PRESSED, DEL_BTN_XX_MAX,
+	 //EV_MEN_ESC_IDLE,  EV_MEN_ESC_ACTIVE}
 };
 
 #define SENSOR_CFG_QTY	(sizeof(task_sensor_cfg_list)/sizeof(task_sensor_cfg_t))
@@ -74,6 +82,9 @@ const task_sensor_cfg_t task_sensor_cfg_list[] = {
 task_sensor_dta_t task_sensor_dta_list[] = {
 	{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP},
 	{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP},
+	{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP},
+	{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP},
+	//{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP},
 	{DEL_BTN_XX_MIN, ST_BTN_XX_UP, EV_BTN_XX_UP}
 };
 

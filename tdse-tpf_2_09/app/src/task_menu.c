@@ -59,6 +59,8 @@
 #define DEL_MEN_XX_MED				50ul
 #define DEL_MEN_XX_MAX				500ul
 
+#define TEXTO_MENU_INICIAL_LINEA1 "TdSE Bienvenidos"
+#define TEXTO_MENU_INICIAL_LINEA2 "Test Nro"
 /********************** internal data declaration ****************************/
 task_menu_dta_t task_menu_dta =
 	{DEL_MEN_XX_MIN, ST_MEN_XX_IDLE, EV_MEN_ENT_IDLE, false};
@@ -113,10 +115,10 @@ void task_menu_init(void *parameters)
 	displayInit( DISPLAY_CONNECTION_GPIO_4BITS );
 
     displayCharPositionWrite(0, 0);
-	displayStringWrite("TdSE Bienvenidos");
+	displayStringWrite(TEXTO_MENU_INICIAL_LINEA1);
 
 	displayCharPositionWrite(0, 1);
-	displayStringWrite("Test Nro: ");
+	displayStringWrite(TEXTO_MENU_INICIAL_LINEA2);
 
 	g_task_menu_tick_cnt = G_TASK_MEN_TICK_CNT_INI;
 }

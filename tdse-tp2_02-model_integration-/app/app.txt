@@ -1,0 +1,13 @@
+  app.c (app.h)
+   Endless loops, which execute tasks with fixed computing time. This 
+   sequential execution is only deviated from when an interrupt event occurs.
+main.c contiene:
+el método main(), que invoca:
+a los método app_init() y app_update(), para inicializar y ejecutar el ejecutor cíclico de tareas
+app.c contiene:
+la declaración de los tipos estructuras de configuración (cfg) y datos (dta) de tareas
+la definición de dos arrays de estructuras de tareas, uno de configuración (cfg) y otro de datos (dta)
+el método app_init(), inicializa el ejecutor cíclico de tareas, donde:
+se ejecuta los métodos task_xxxx_init() de cada tarea 
+se inicializa la estructura de datos (dta) de cada tarea
+...
