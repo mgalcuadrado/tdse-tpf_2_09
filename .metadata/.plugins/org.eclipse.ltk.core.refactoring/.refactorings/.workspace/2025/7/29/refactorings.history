@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;tdse-tp3_06-interactive_menu&apos; to &apos;tdse-tpf_2_09&apos;" description="Rename resource &apos;tdse-tp3_06-interactive_menu&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/tdse-tp3_06-interactive_menu" name="tdse-tpf_2_09" stamp="1752781271182" updateReferences="true"/>
+</session>

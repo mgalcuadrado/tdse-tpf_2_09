@@ -1,0 +1,21 @@
+!SESSION 2025-07-17 16:38:47.463 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-07-17 16:39:07.813
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-07-17 16:39:07.821
+!MESSAGE Log4j2 initialized with config file C:\Users\mechi\OneDrive\FIUBA\2025_1C\TdSE\tpf_workspace\tdse-tpf_2_09\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-07-17 16:39:17.502
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-07-17 16:39:51.215
+!MESSAGE Indexed 'tdse-tp3_06-interactive_menu' (23 sources, 94 headers) in 3.96 sec: 7,315 declarations; 29,980 references; 10 unresolved inclusions; 740 syntax errors; 987 unresolved names (2.6%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-07-17 16:41:11.885
+!MESSAGE Indexed 'tdse-tpf_2_09' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
