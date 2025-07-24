@@ -1,0 +1,136 @@
+/*
+ * potenciometro.c
+ *
+ *  Created on: Jul 24, 2025
+ *      Author: mechi
+ */
+/* Project includes. */
+#include "main.h"
+
+
+/* App includes. */
+#include "logger.h"
+
+/* Application includes. */
+
+/********************** macros and definitions *******************************/
+
+#define SAMPLES_COUNTER (100)
+#define AVERAGER_SIZE (16)
+
+/********************** external data declaration *****************************/
+
+extern ADC_HandleTypeDef hadc1;
+
+/********************** external functions definition ************************/
+
+
+
+/********************** internal data declaration ****************************/
+uint32_t tickstart;
+uint16_t sample_idx;
+
+
+uint16_t sample_array[SAMPLES_COUNTER];
+bool b_trig_new_conversion;
+
+/********************** internal data definition *****************************/
+
+/********************** internal functions definitions ***********************/
+
+bool potenciometro_lectura();
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
+HAL_StatusTypeDef ADC_Poll_Read(uint16_t *value);
+
+/********************** internal functions declaration ***********************/
+
+
+
+void potenciometro_init(void)
+{
+
+
+	HAL_NVIC_SetPriority(ADC1_2_IRQn, 2, 0);
+	HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
+
+	sample_idx = 0;
+	LOGGER_LOG ("Potenciómetro test starts\n");
+	tickstart = HAL_GetTick();
+}
+
+void potenciometro_update(void)
+{
+	static bool b_test_done = false;
+
+	if (!b_test_done) {
+
+		b_test_done = potenciometro_lectura();
+
+		if (b_test_done) {
+			LOGGER_LOG("Test ends. Ticks: %lu\n", HAL_GetTick()-tickstart);
+			potenciometro_obtencion_datos(sample_array);
+		}
+	}
+
+}
+
+
+//	Requests start of conversion, waits until conversion done
+HAL_StatusTypeDef ADC_Poll_Read(uint16_t *value) {
+	HAL_StatusTypeDef res;
+
+	res=HAL_ADC_Start(&hadc1);
+	if ( HAL_OK==res ) {
+		res=HAL_ADC_PollForConversion(&hadc1, 0);
+		if ( HAL_OK==res ) {
+			*value = HAL_ADC_GetValue(&hadc1);
+		}
+	}
+	return res;
+}
+
+/* ADC callback */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
+
+	sample_array[sample_idx++] = HAL_ADC_GetValue(&hadc1);
+	if (sample_idx<SAMPLES_COUNTER) {
+		b_trig_new_conversion = true;
+	}
+}
+
+bool potenciometro_lectura() {
+
+	bool b_done = false;
+
+	if (sample_idx>=SAMPLES_COUNTER) {
+		b_done = true;
+		goto potenciometro_lectura_end;
+	}
+
+	/* start of first conversion */
+	if (0==sample_idx) {
+		b_trig_new_conversion = true;
+	}
+
+
+	if (b_trig_new_conversion) {
+		b_trig_new_conversion = false;
+		HAL_ADC_Start_IT(&hadc1);
+	}
+
+
+potenciometro_lectura_end:
+	if (b_done) {
+		for (sample_idx=0;sample_idx<SAMPLES_COUNTER;sample_idx++) {
+			LOGGER_LOG("%u\n",sample_array[sample_idx] );
+		}
+	}
+	return b_done;
+}
+
+
+
+
+/********************** end of file ******************************************/
+
+
