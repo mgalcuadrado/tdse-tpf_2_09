@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="test3"/>
 		<item value="queue_task_a"/>
 		<item value="queue_task_"/>
 		<item value="BTN_A_PIN"/>

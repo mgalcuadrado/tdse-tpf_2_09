@@ -2,7 +2,7 @@
 //#include "mbed.h"
 //#include "arm_book_lib.h"
 
-#include "display.h"
+#include "display_rgb.h"
 #include "main.h"
 #include <stdbool.h>
 
